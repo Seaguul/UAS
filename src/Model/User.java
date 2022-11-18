@@ -12,19 +12,23 @@ package Model;
 public class User {
     private int userId;
     private String userName;
+    private String password;
     private String userEmail;
     private String userGender;
     private CategoryUser userCategory;
     private int userFollowers;
 
-    public User(int userId, String userName, String userEmail, String userGender, CategoryUser userCategory, int userFollowers) {
+    public User(int userId, String userName, String password, String userEmail, String userGender, CategoryUser userCategory, int userFollowers) {
         this.userId = userId;
         this.userName = userName;
+        this.password = password;
         this.userEmail = userEmail;
         this.userGender = userGender;
         this.userCategory = userCategory;
         this.userFollowers = userFollowers;
     }
+
+    
 
     public int getUserId() {
         return userId;
@@ -73,6 +77,15 @@ public class User {
     public void setUserFollowers(int userFollowers) {
         this.userFollowers = userFollowers;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     
     
 }

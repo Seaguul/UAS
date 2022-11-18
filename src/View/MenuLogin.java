@@ -5,9 +5,11 @@
  */
 package View;
 
+import Model.User;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -45,6 +47,19 @@ public class MenuLogin {
         JButton back = new JButton("Back");
         back.setBounds(300, 280, 75, 40);
         
+        login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = field1.getText();
+                String pass = pass1.getText();
+                
+                if(username){
+                    
+                }
+                
+            }
+        });
+        
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new MainMenu();
@@ -57,6 +72,8 @@ public class MenuLogin {
     
      public static void main(String[] args) {
         // TODO code application logic here
+        ArrayList<User> user = new ArrayList<User>();
+        User user1 = new User(0, userName, password, userEmail, userGender, userCategory, 0)
         new MenuLogin();
     }
 }
