@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -21,7 +22,13 @@ import javax.swing.JTextField;
  */
 public class MenuLogin {
     
+    static ArrayList<User> users = new ArrayList<User>();
+    
+        
+        
     public MenuLogin(){
+        
+        
         JFrame f = new JFrame("Login Menu");
         f.setSize(600, 600);
         f.setVisible(true);
@@ -50,11 +57,18 @@ public class MenuLogin {
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean log = false;
+                String warn = "user name dan password tidak tepat!";
                 String username = field1.getText();
                 String pass = pass1.getText();
                 
-                if(username){
-                    
+                for (int i = 0; i < users.size(); i++) {
+                    if(users.get(i).getUserName() == username && users.get(i).getPassword() == pass){
+                        log = true;
+                    } else {
+                        log = false;
+                        JOptionPane.showMessageDialog(null, warn, "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
                 }
                 
             }
@@ -72,8 +86,8 @@ public class MenuLogin {
     
      public static void main(String[] args) {
         // TODO code application logic here
-        ArrayList<User> user = new ArrayList<User>();
-        User user1 = new User(0, userName, password, userEmail, userGender, userCategory, 0)
+        User user1 = new User(1, "kevin", "123", "kevin@email.com", "Male", null, 4);
+        users.add(user1);
         new MenuLogin();
     }
 }
