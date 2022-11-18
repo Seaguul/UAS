@@ -6,6 +6,8 @@
 package View;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,6 +35,24 @@ public class MainMenu {
         b.setBounds(275, 260, 150, 75);
         JButton c = new JButton("User Profile");
         c.setBounds(275, 370, 150, 75);
+        
+        a.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new MenuLogin();
+            }
+        });
+        
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new MenuRegistrasi();
+            }
+        });
+        
+        c.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new MenuLihatSeluruhDataPengguna();
+            }
+        });
         
         f.add(a);
         f.add(b);
